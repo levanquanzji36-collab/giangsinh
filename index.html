@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merry Christmas</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        background: radial-gradient(circle at top, #b30000, #520000);
+        overflow: hidden;
+        font-family: "Playfair Display", serif;
+        color: white;
+      }
+
+      /* ===== LAYOUT MOBILE FIRST ===== */
+      .wrapper {
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== TITLE ===== */
+      h1 {
+        margin-top: 20px;
+        font-size: 42px;
+        font-style: italic;
+        text-align: center;
+        text-shadow: 0 0 10px #fff, 0 0 25px #ffb3b3, 0 0 45px #ff4d4d;
+        animation: glow 2s infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          opacity: 0.8;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* ===== TREE IMAGE ===== */
+      .tree-container {
+        position: relative;
+        width: 70vw;
+        max-width: 260px;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .tree-container img {
+        width: 100%;
+        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.35));
+      }
+
+      /* sao trên đỉnh */
+      .star {
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 28px;
+        color: gold;
+        text-shadow: 0 0 15px gold;
+        animation: twinkle 1.2s infinite alternate;
+        z-index: 3;
+      }
+
+      @keyframes twinkle {
+        from {
+          transform: translateX(-50%) scale(1);
+        }
+        to {
+          transform: translateX(-50%) scale(1.4);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* ===== MESSAGE ===== */
+      .message {
+        margin-bottom: 28px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.6;
+        font-style: italic;
+      }
+
+      /* ===== SNOW ===== */
+      .snow {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 12px;
+        pointer-events: none;
+        animation: fall linear infinite;
+        z-index: 1;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(110vh);
+        }
+      }
+
+      /* ===== SPARKLE ===== */
+      .sparkle {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 8px white;
+        animation: sparkle 2.5s infinite;
+        z-index: 1;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .gift {
+        position: fixed;
+        top: -40px;
+        font-size: 22px; /* to rõ trên mobile */
+        pointer-events: none;
+        animation: fall linear infinite;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(110vh) rotate(360deg);
+        }
+      }
+
+      /* ===== TREE LIGHTS ===== */
+      .light {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        animation: blink 1.2s infinite alternate;
+      }
+
+      @keyframes blink {
+        from {
+          opacity: 0.3;
+        }
+        to {
+          opacity: 1;
+          box-shadow: 0 0 10px currentColor;
+        }
+      }
+
+      /* ===== DESKTOP ===== */
+      @media (min-width: 768px) {
+        h1 {
+          font-size: 64px;
+        }
+        .message {
+          font-size: 22px;
+        }
+        .tree-container {
+          max-width: 380px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h1>Merry Christmas, Ngọc Anh❤️</h1>
+
+      <div class="tree-container">
+        <div class="star">★</div>
+        <img src="tree.png" alt="Christmas Tree" />
+      </div>
+
+      <div class="message">
+        Chúc emyeu một mùa Giáng sinh an lành, ấm áp, ngập tràn hạnh phúc.<br />
+        Mong thật nhiều điều tốt đẹp và may mắn sẽ đến với em.<br />
+        Giáng sinh vui vẻ nhaaa, iu emmm❤️
+      </div>
+    </div>
+
+    <script>
+      /* ===== SNOW ===== */
+      for (let i = 0; i < 100; i++) {
+        const s = document.createElement("div");
+        s.className = "snow";
+        s.innerHTML = "❄";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.animationDuration = 5 + Math.random() * 8 + "s";
+        s.style.opacity = Math.random();
+        document.body.appendChild(s);
+      }
+
+      /* ===== SPARKLES ===== */
+      for (let i = 0; i < 70; i++) {
+        const s = document.createElement("div");
+        s.className = "sparkle";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        s.style.animationDelay = Math.random() * 3 + "s";
+        document.body.appendChild(s);
+      }
+
+      /* ===== GIFTS FALLING ===== */
+      const gifts = ["🎁", "❄️", "🦌", "☃️", "🎄", "🎅"];
+      const total = 12; // tối ưu cho mobile
+      const padding = 5; // tránh sát mép
+      const usableWidth = 100 - padding * 2;
+      const gap = usableWidth / total;
+
+      for (let i = 0; i < total; i++) {
+        const g = document.createElement("div");
+        g.className = "gift";
+        g.innerHTML = gifts[Math.floor(Math.random() * gifts.length)];
+
+        // vị trí đều + xê dịch nhẹ
+        const x = padding + i * gap + Math.random() * (gap * 0.6);
+        g.style.left = x + "vw";
+
+        g.style.animationDuration = 5 + Math.random() * 5 + "s";
+        g.style.animationDelay = Math.random() * 2 + "s";
+
+        document.body.appendChild(g);
+      }
+
+      /* ===== TREE LIGHTS ===== */
+      const tree = document.querySelector(".tree-container");
+      if (tree) {
+        for (let i = 0; i < 36; i++) {
+          const l = document.createElement("div");
+          l.className = "light";
+          l.style.left = Math.random() * 100 + "%";
+          l.style.top = Math.random() * 100 + "%";
+          l.style.color = ["red", "gold", "cyan", "lime", "pink"][
+            Math.floor(Math.random() * 5)
+          ];
+          l.style.animationDelay = Math.random() * 2 + "s";
+          tree.appendChild(l);
+        }
+      }
+    </script>
+  </body>
+</html>
