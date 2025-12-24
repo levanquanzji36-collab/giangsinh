@@ -27,7 +27,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         position: relative;
         z-index: 2;
       }
@@ -98,12 +98,15 @@
 
       /* ===== MESSAGE ===== */
       .message {
-        margin-bottom: 28px;
-        text-align: center;
-        font-size: 16px;
-        line-height: 1.6;
-        font-style: italic;
-      }
+  margin-top: 20px;
+  margin-bottom: 40px; /* đẩy lên khỏi đáy */
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  max-width: 90vw; /* dễ đọc trên mobile */
+}
+
 
       /* ===== SNOW ===== */
       .snow {
