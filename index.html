@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Merry Christmas</title>
@@ -35,7 +39,7 @@
       /* ===== TITLE ===== */
       h1 {
         margin-top: 20px;
-        font-size: 42px;
+        font-size: 36px;
         font-style: italic;
         text-align: center;
         text-shadow: 0 0 10px #fff, 0 0 25px #ffb3b3, 0 0 45px #ff4d4d;
@@ -98,15 +102,13 @@
 
       /* ===== MESSAGE ===== */
       .message {
-        margin-top: 36px;
-        margin-bottom: 40px;
-        text-align: center;
-        font-size: 18px;
-        line-height: 1.7;
+        font-size: 16px;
+        line-height: 1.6;
         font-style: italic;
-        font-weight: 500;
-        max-width: 90vw;
-}
+        color: #fff;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+      }
+
 
       /* ===== SNOW ===== */
       .snow {
@@ -115,11 +117,11 @@
         color: white;
         font-size: 12px;
         pointer-events: none;
-        animation: fall linear infinite;
+        animation: snow-fall linear infinite;
         z-index: 1;
       }
 
-      @keyframes fall {
+      @keyframes snow-fall {
         to {
           transform: translateY(110vh);
         }
@@ -152,11 +154,11 @@
         top: -40px;
         font-size: 22px; /* to rõ trên mobile */
         pointer-events: none;
-        animation: fall linear infinite;
+        animation: gift-fall linear infinite;
         filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
       }
 
-      @keyframes fall {
+      @keyframes gift-fall {
         to {
           transform: translateY(110vh) rotate(360deg);
         }
@@ -180,6 +182,25 @@
           box-shadow: 0 0 10px currentColor;
         }
       }
+      .card {
+        margin-top: 24px;
+        padding: 18px 16px;
+        max-width: 90vw;
+
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+
+        box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.15),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+
+  text-align: center;
+}
+
 
       /* ===== DESKTOP ===== */
       @media (min-width: 768px) {
@@ -201,16 +222,19 @@
       <h1>Merry Christmas, Ngọc Anh❤️</h1>
 
       <div class="tree-container">
-        <div class="star">★</div>
         <img src="tree.png" alt="Christmas Tree" />
       </div>
 
+      <div class="card">
+         <div class="card-icon">💌</div>
+
       <div class="message">
-        Chúc emyeu một mùa Giáng sinh an lành, ấm áp, ngập tràn hạnh phúc.<br />
-        Mong thật nhiều điều tốt đẹp và may mắn sẽ đến với em.<br />
-        Giáng sinh vui vẻ nhaaa, iu emmm❤️
-      </div>
-    </div>
+    Chúc emyeu một mùa Giáng sinh an lành, ấm áp, ngập tràn hạnh phúc.<br />
+    Mong thật nhiều điều tốt đẹp và may mắn sẽ đến với em.<br />
+    Giáng sinh vui vẻ nhaaa, iu emmm❤️
+  </div>
+</div>
+
 
     <script>
       /* ===== SNOW ===== */
